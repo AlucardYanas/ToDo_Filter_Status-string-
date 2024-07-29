@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { useEffect, useState } from 'react';
 import {
   addCardThunk,
@@ -13,7 +14,7 @@ export default function useCards(): {
   filteredCards: CardType[];
   cardSubmitHandler: (e: React.FormEvent<HTMLFormElement>) => void;
   deleteHandler: (id: CardType['id']) => void;
-  editHandler: (id: CardType['id'], updatedCard: CardDataType) => void;
+  editHandler: (id: CardType['id'], updatedCard: CardType) => void;
   filterHandler: (status: string) => void;
   updateStatusHandler: (id: CardType['id'], status: string) => void;
   selectedStatus: string | null;
@@ -53,7 +54,7 @@ export default function useCards(): {
     void dispatch(deleteCardThunk(id));
   };
 
-  const editHandler = (id: CardType['id'], updatedCard: CardDataType): void => {
+  const editHandler = (id: CardType['id'], updatedCard: CardType): void => {
     void dispatch(updateCardThunk({ id, updatedCard }));
   };
 

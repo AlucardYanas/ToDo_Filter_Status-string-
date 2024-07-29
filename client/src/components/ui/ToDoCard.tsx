@@ -19,11 +19,11 @@ export default function ToDoCard({
   const [title, setTitle] = useState(card.title);
   const [description, setDescription] = useState(card.description);
 
-  const handleEdit = () => {
+  const handleEdit = (): void => {
     setIsEditing(true);
   };
 
-  const handleSave = () => {
+  const handleSave = (): void => {
     setIsEditing(false);
     editHandler(card.id, { ...card, title, description });
   };
